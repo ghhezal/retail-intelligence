@@ -1,5 +1,6 @@
 from decimal import Decimal
 from pydantic import BaseModel, Field
+from typing import Literal
 
 
 class CategoryData(BaseModel):
@@ -54,3 +55,15 @@ class PurchaseOrderData(BaseModel):
 class PurchaseOrderItemData(BaseModel):
     product_id: int = Field(gt=0)
     quantity: int = Field(gt=0)
+
+
+class SaleItemData(BaseModel):
+    product_id: int = Field(gt=0)
+    quantity: int = Field(gt=0)
+
+
+class SaleData(BaseModel):
+    branch_id: int = Field(gt=0)
+    customer_id: int | None = Field(default=None, gt=0)
+    payment_method: Literal["cash", "card", "bank_transfer"]
+    items: list[SaleItemData] = Field(min_length=1)
