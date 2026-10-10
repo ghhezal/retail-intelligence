@@ -2,13 +2,21 @@ from fastapi import FastAPI
 from sqlalchemy import text
 
 from app.database import engine
-from app.routers import products, categories, brands
+from app.routers import (
+    products,
+    categories,
+    brands,
+    branches,
+    inventory
+)
 
 app = FastAPI(title="Retail Intelligence API")
 
 app.include_router(products.router)
 app.include_router(categories.router)
 app.include_router(brands.router)
+app.include_router(branches.router)
+app.include_router(inventory.router)
 
 
 @app.get("/")

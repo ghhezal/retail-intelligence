@@ -19,3 +19,15 @@ class ProductData(BaseModel):
 
 class BrandData(BaseModel):
     name: str = Field(min_length=1, max_length=100)
+
+
+class InventoryData(BaseModel):
+    branch_id: int = Field(gt=0)
+    product_id: int = Field(gt=0)
+    quantity: int = Field(ge=0)
+    reorder_level: int = Field(ge=0)
+
+
+class InventoryUpdate(BaseModel):
+    quantity: int = Field(ge=0)
+    reorder_level: int = Field(ge=0)
