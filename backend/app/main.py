@@ -11,7 +11,8 @@ from app.routers import (
     suppliers,
     purchase_orders,
     sales,
-    stock_transfers
+    stock_transfers,
+    analytics
 )
 
 app = FastAPI(title="Retail Intelligence API")
@@ -25,6 +26,7 @@ app.include_router(suppliers.router)
 app.include_router(purchase_orders.router)
 app.include_router(sales.router)
 app.include_router(stock_transfers.router)
+app.include_router(analytics.router)
 
 
 @app.get("/")
