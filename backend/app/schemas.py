@@ -67,3 +67,13 @@ class SaleData(BaseModel):
     customer_id: int | None = Field(default=None, gt=0)
     payment_method: Literal["cash", "card", "bank_transfer"]
     items: list[SaleItemData] = Field(min_length=1)
+
+
+class StockTransferData(BaseModel):
+    from_branch_id: int = Field(gt=0)
+    to_branch_id: int = Field(gt=0)
+
+
+class StockTransferItemData(BaseModel):
+    product_id: int = Field(gt=0)
+    quantity: int = Field(gt=0)
