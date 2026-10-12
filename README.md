@@ -79,9 +79,3 @@ Create `frontend/.env`:
 ```env
 VITE_API_URL=http://127.0.0.1:8000
 ```
-
----
-
-## Deployment & Security Notice
-
-The current version operates without authentication/authorization for local operations. **A public production deployment must enforce server-side authentication (e.g. JWT or OAuth2) or read-only mode protections** before opening write endpoints (`POST`, `PUT`, `DELETE`) to the internet. Hiding buttons in the frontend alone does not protect public endpoints.
